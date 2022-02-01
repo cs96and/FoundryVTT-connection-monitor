@@ -1,0 +1,15 @@
+/*
+ * Connection Monitor
+ * https://github.com/cs96and/FoundryVTT-connection-monitor
+ *
+ * Copyright (c) 2022 Alan Davies - All Rights Reserved.
+ *
+ * You may use, distribute and modify this code under the terms of the MIT license.
+ *
+ * You should have received a copy of the MIT license with this file. If not, please visit:
+ * https://mit-license.org/
+ */
+
+.conmon-disconnected {
+	filter: grayscale(100%) blur(1px);
+}
