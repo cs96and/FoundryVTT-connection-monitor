@@ -1,13 +1,18 @@
 {
+	"id": "connection-monitor",
 	"name": "connection-monitor",
+	"type": "module",
 	"title": "Connection Monitor",
 	"description": "Greys out the foundry logo when disconnected.",
 	"version": "This is auto replaced",
 	"library": false,
+	"compatibility": {
+		"minimum": "0.8.6",
+		"verified": "10"
+	},
 	"manifestPlusVersion": "1.2.0",
 	"minimumCoreVersion": "0.8.6",
-	"compatibleCoreVersion": "9",
-	"author": "Alan Davies",
+	"compatibleCoreVersion": "10",
 	"authors": [
 		{
 			"name": "Alan Davies",
@@ -15,6 +20,7 @@
 			"ko-fi": "cs96and"
 		}
 	],
+	"author": "Alan Davies",
 	"esmodules": [
 		"scripts/connection-monitor.js"
 	],
