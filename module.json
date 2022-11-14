@@ -4,7 +4,7 @@
 	"type": "module",
 	"title": "Connection Monitor",
 	"description": "Greys out the foundry logo when disconnected.",
-	"version": "This is auto replaced",
+	"version": "#{VERSION}#",
 	"library": false,
 	"compatibility": {
 		"minimum": "0.8.6",
@@ -35,7 +35,7 @@
 			"path": "lang/en.json"
 		}
 	],
-	"url": "This is auto replaced",
-	"manifest": "This is auto replaced",
-	"download": "This is auto replaced"
+	"url": "#{URL}#",
+	"manifest": "#{MANIFEST}#",
+	"download": "#{DOWNLOAD}#"
 }
