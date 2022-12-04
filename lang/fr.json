@@ -1,1 +1,6 @@
-{}
+{
+	"connection-monitor.reconnected": "La connexion est rétablie.",
+	"connection-monitor.no-active-world": "La connexion est rétablie, mais aucun monde n'est actif. Veuillez rafraîchir la fenêtre du navigateur",
+	"connection-monitor.world-changed": "La connexion est rétablie, mais le monde a changé. Veuillez rafraîchir la fenêtre du navigateur",
+	"connection-monitor.world-restarted": "La connexion est rétablie, mais le monde a redémarré. Veuillez rafraîchir la fenêtre du navigateur"
+}
