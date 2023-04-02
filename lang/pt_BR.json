@@ -1,1 +1,6 @@
-{}
+{
+	"connection-monitor.reconnected": "Conexão restabelecida.",
+	"connection-monitor.no-active-world": "Conexão restabelecida, mas nenhum mundo está ativo. Atualize a janela do navegador",
+	"connection-monitor.world-changed": "Conexão restabelecida, mas o mundo mudou. Atualize a janela do navegador",
+	"connection-monitor.world-restarted": "Conexão restabelecida, mas o mundo foi reiniciado. Atualize a janela do navegador"
+}
