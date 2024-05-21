@@ -6,13 +6,11 @@
 	"description": "Greys out the foundry logo when disconnected.",
 	"version": "#{VERSION}#",
 	"library": false,
-	"compatibility": {
-		"minimum": "0.8.6",
-		"verified": "11"
-	},
 	"manifestPlusVersion": "1.2.0",
-	"minimumCoreVersion": "0.8.6",
-	"compatibleCoreVersion": "11",
+	"compatibility": {
+		"minimum": "10",
+		"verified": "12"
+	},
 	"authors": [
 		{
 			"name": "Alan Davies",
@@ -20,7 +18,6 @@
 			"ko-fi": "cs96and"
 		}
 	],
-	"author": "Alan Davies",
 	"esmodules": [
 		"scripts/connection-monitor.js"
 	],

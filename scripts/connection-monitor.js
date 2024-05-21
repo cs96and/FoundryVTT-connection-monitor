@@ -50,8 +50,6 @@ class ConnectionMonitor {
 			} else if (status.uptime < this._initialUptime) {
 				ui.notifications.warn("connection-monitor.world-restarted", { localize: true, permanent: true });
 				return;
-			} else if (!ConnectionMonitor.isV10()) {
-				ui.notifications.info("connection-monitor.reconnected", { localize: true });
 			}
 		}
 
@@ -75,10 +73,6 @@ class ConnectionMonitor {
 		if (!status.ok)
 			return undefined;
 		return await status.json();
-	}
-
-    static isV10() {
-		return !isNewerVersion("10", game.version ?? game.data.version);
 	}
 }
 
