@@ -11,49 +11,51 @@
  */
 
 class ConnectionMonitor {
+	#elementList = [ "logo", "controls", "navigation", "players", "hotbar" ];
+	#worldId;
+	#initialUptime;
+
 	constructor() {
-		this._elementList = [ "logo", "controls", "navigation", "players", "hotbar" ];
-
 		Hooks.once("ready", async () => {
-			this._worldId = game.world.id;
-			this._initialUptime = (await ConnectionMonitor._getStatus())?.uptime;
+			this.#worldId = game.world.id;
+			this.#initialUptime = (await ConnectionMonitor.#getStatus())?.uptime;
 
-			game.socket.on("disconnect", () => this._onConnectionStateChange(game.socket.connected));
-			game.socket.on("reconnect", () => this._onConnectionStateChange(game.socket.connected));
-			game.socket.on("connect", () => this._onConnectionStateChange(game.socket.connected));
+			game.socket.on("disconnect", () => this.#onConnectionStateChange(game.socket.connected));
+			game.socket.on("reconnect", () => this.#onConnectionStateChange(game.socket.connected));
+			game.socket.on("connect", () => this.#onConnectionStateChange(game.socket.connected));
 	
-			Hooks.on("renderHotbar", this._onRenderApplication.bind(this));
-			Hooks.on("renderSceneControls", this._onRenderApplication.bind(this));
-			Hooks.on("renderPlayerList", this._onRenderApplication.bind(this));
+			Hooks.on("renderHotbar", this.#onRenderApplication.bind(this));
+			Hooks.on("renderSceneControls", this.#onRenderApplication.bind(this));
+			Hooks.on("renderPlayerList", this.#onRenderApplication.bind(this));
 
 /*
 			// FOR TESTING UI UPDATES...
 			let isConnected = true;
 			setInterval(() => {
 				isConnected = !isConnected;
-				this._onConnectionStateChange(isConnected);
+				this.#onConnectionStateChange(isConnected);
 			}, 2000);
 */
 		});
 	}
 
-	async _onConnectionStateChange(isConnected) {
+	async #onConnectionStateChange(isConnected) {
 		if (isConnected) {
 			// Use the REST API to get the current game status, to make sure the world is back up and running.
-			const status = await ConnectionMonitor._getStatus();
+			const status = await ConnectionMonitor.#getStatus();
 			if (!status?.active) {
 				ui.notifications.warn("connection-monitor.no-active-world", { localize: true, permanent: true });
 				return;
-			} else if (status.world !== this._worldId) {
+			} else if (status.world !== this.#worldId) {
 				ui.notifications.warn("connection-monitor.world-changed", { localize: true, permanent: true });
 				return;
-			} else if (status.uptime < this._initialUptime) {
+			} else if (status.uptime < this.#initialUptime) {
 				ui.notifications.warn("connection-monitor.world-restarted", { localize: true, permanent: true });
 				return;
 			}
 		}
 
-		for (const element of this._elementList) {
+		for (const element of this.#elementList) {
 			const classList = document.getElementById(element)?.classList;
 			if (classList) {
 				const addOrRemoveClass = (isConnected ? classList.remove : classList.add).bind(classList);
@@ -62,12 +64,12 @@ class ConnectionMonitor {
 		}
 	}
 
-	_onRenderApplication(app, html, data) {
+	#onRenderApplication(app, html, data) {
 		if (!game.socket.connected)
 			html[0].classList.add("conmon-disconnected");
 	}
 
-	static async _getStatus() {
+	static async #getStatus() {
 		const statusUrl = window.location.href.replace(/\/game$/, "/api/status");
 		const status = await fetch(statusUrl);
 		if (!status.ok)
