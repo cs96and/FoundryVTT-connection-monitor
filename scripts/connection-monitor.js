@@ -11,7 +11,7 @@
  */
 
 class ConnectionMonitor {
-	#elementList = [ "logo", "controls", "navigation", "players", "hotbar" ];
+	#elementList = [ "ui-left", "logo", "controls", "navigation", "players", "hotbar" ];
 	#worldId;
 	#initialUptime;
 

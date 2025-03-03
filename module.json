@@ -1,15 +1,12 @@
 {
 	"id": "connection-monitor",
-	"name": "connection-monitor",
-	"type": "module",
 	"title": "Connection Monitor",
 	"description": "Greys out the foundry logo when disconnected.",
 	"version": "#{VERSION}#",
 	"library": false,
-	"manifestPlusVersion": "1.2.0",
 	"compatibility": {
 		"minimum": "10",
-		"verified": "12"
+		"verified": "13"
 	},
 	"authors": [
 		{
