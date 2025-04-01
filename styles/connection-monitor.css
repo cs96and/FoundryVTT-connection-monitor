@@ -2,7 +2,7 @@
  * Connection Monitor
  * https://github.com/cs96and/FoundryVTT-connection-monitor
  *
- * Copyright (c) 2022-2024 Alan Davies - All Rights Reserved.
+ * Copyright (c) 2022-2025 Alan Davies - All Rights Reserved.
  *
  * You may use, distribute and modify this code under the terms of the MIT license.
  *
